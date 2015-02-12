@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => null, 'name' => null],
+	'from' => ['address' => env('MAIL_FROM_ADDR', null), 'name' => env('MAIL_FROM_NAME', null)],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
 	|
 	*/
 
-	'username' => null,
+	'username' => env('SMTP_USER', null),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
 	|
 	*/
 
-	'password' => null,
+	'password' => env('SMTP_PWD', null),
 
 	/*
 	|--------------------------------------------------------------------------
