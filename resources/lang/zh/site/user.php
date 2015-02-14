@@ -5,7 +5,7 @@ return [
 	'login_to_account' => '用户登录',
 	'submit' => '提交',
 	'register' => '创建新用户',
-	'remember' => '记住我',
+	'remember' => '下次自动登录',
 	'password' => '密码',
 	'e_mail' => '电邮地址',
 	'register' => '注册',

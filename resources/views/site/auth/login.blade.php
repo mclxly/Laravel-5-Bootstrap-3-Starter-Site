@@ -36,6 +36,14 @@
 		</div>
 		<div class="form-group">
 			<div class="col-md-offset-2 col-md-10">
+				<label>
+		      <input class="login-form-memberPass" type="checkbox" name="remember" id="remember" value="1" 
+		      {{ Input::old('remember') ? 'checked' : '' }}> {{ Lang::get('site/user.remember') }}
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
 				<button tabindex="3" type="submit" class="btn btn-primary">{{
 					Lang::get('site/user.submit') }}</button>
 				<a class="btn btn-default" href="register">{{

@@ -5,7 +5,7 @@ return [
 	'login_to_account' => 'Login into your account',
 	'submit' => 'Submit',
 	'register' => 'Create a new account',
-	'remember' => 'Remember',
+	'remember' => 'Remember Me',
 	'password' => 'Password',
 	'e_mail' => 'E-mail',
 	'register' => 'Register',

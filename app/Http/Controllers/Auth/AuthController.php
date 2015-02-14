@@ -101,7 +101,7 @@ class AuthController extends Controller
      */
     public function login(LoginRequest $request)
     {
-        if ($this->auth->attempt($request->only('email', 'password'))) {
+        if ($this->auth->attempt($request->only('email', 'password'), Input::has('remember'))) {
             
             $count = IsAdminRoles::join('permission_role','assigned_roles.role_id','=','permission_role.role_id')
             ->join('permissions','permissions.id','=','permission_role.permission_id')
@@ -109,7 +109,7 @@ class AuthController extends Controller
             ->where('permissions.is_admin','1')
             ->count();
             if($count>0){
-                return redirect('admin/dashboard');
+                return redirect()->intended('admin/dashboard');
             }
             return redirect('/');
         }
