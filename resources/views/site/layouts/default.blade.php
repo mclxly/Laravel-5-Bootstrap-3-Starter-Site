@@ -27,6 +27,7 @@
 	href="{{asset('assets/site/css/justifiedGallery.min.css')}}" />
 <link rel="stylesheet"
 	href="{{asset('assets/site/css/lightbox.min.css')}}" />
+<link rel="stylesheet" href="{{ elixir("css/app.css") }}">	
 <!-- Javascripts
 		================================================== -->
 <script src="{{asset('assets/site/js/jquery-1.11.1.min.js')}}"></script>
