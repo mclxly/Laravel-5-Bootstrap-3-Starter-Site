@@ -44,7 +44,7 @@
 		</div>
 		<div class="form-group">
 			<div class="col-md-offset-2 col-md-10">
-				<button tabindex="3" type="submit" class="btn btn-primary">{{
+				<button tabindex="3" type="submit" class="btn btn-primary" id="aa">{{
 					Lang::get('site/user.submit') }}</button>
 				<a class="btn btn-default" href="register">{{
 					Lang::get('site/user.register') }}</a>

@@ -6,6 +6,10 @@ use App\Photo;
 use App\VideoAlbum;
 use App\PhotoAlbum;
 use Illuminate\Support\Facades\DB;
+use Log;
+
+use Event;
+use App\Events\MyEvent;
 
 class HomeController extends BaseController {
 
@@ -36,6 +40,8 @@ class HomeController extends BaseController {
 
     public function index()
 	{
+        Event::fire(new MyEvent());
+
         $news = $this->news->orderBy('position', 'DESC')->orderBy('created_at', 'DESC')->limit(4)->get();
         $sliders = Photo::join('photo_album', 'photo_album.id','=','photo.photo_album_id')
                         ->where('photo.slider',1)
