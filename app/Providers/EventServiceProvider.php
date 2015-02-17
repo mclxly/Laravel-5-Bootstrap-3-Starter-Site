@@ -17,6 +17,9 @@ class EventServiceProvider extends ServiceProvider {
 		'App\Events\MyEvent' => [
 			'App\Handlers\Events\EmailMyEvent@handle',
 		],
+		'MyEvent' => [
+			'App\Handlers\Events\EmailMyEvent@handle',
+		],
 	];
 
 	/**

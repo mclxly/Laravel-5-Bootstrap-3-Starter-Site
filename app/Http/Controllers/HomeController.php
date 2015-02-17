@@ -10,6 +10,7 @@ use Log;
 
 use Event;
 use App\Events\MyEvent;
+use App\Commands\MyCmd;
 
 class HomeController extends BaseController {
 
@@ -40,6 +41,7 @@ class HomeController extends BaseController {
 
     public function index()
 	{
+        $this->dispatch(new MyCmd());
         Event::fire(new MyEvent());
 
         $news = $this->news->orderBy('position', 'DESC')->orderBy('created_at', 'DESC')->limit(4)->get();
