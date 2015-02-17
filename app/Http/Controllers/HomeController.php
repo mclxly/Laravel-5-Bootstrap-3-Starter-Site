@@ -10,6 +10,8 @@ use Log;
 
 use Event;
 use App\Events\MyEvent;
+use App\Events\UserLoggedIn;
+use App\Handlers\UserEventHandler;
 use App\Commands\MyCmd;
 
 class HomeController extends BaseController {
@@ -41,8 +43,25 @@ class HomeController extends BaseController {
 
     public function index()
 	{
-        $this->dispatch(new MyCmd());
+        Event::listen("Pages.show", function(){
+            Log::info('event - Pages.show');            
+        });
+        Event::fire("Pages.show");
+
+        Log::info('HomeController:index');
+        // $this->dispatch(new MyCmd());
+        // $stt = Event::fire(new MyEvent());
+        // $stt = Event::fire('App\Events\MyEvent', new MyEvent());
+        // event(new MyEvent());        
         Event::fire(new MyEvent());
+
+        // subscriber method 1
+        // $subscriber = new UserEventHandler;
+        // Event::subscribe($subscriber);
+        // subscriber method 2
+        Event::subscribe('App\Handlers\UserEventHandler');
+        Event::fire(new UserLoggedIn());
+        Event::fire('App\Events\UserLoggedIn', null);
 
         $news = $this->news->orderBy('position', 'DESC')->orderBy('created_at', 'DESC')->limit(4)->get();
         $sliders = Photo::join('photo_album', 'photo_album.id','=','photo.photo_album_id')

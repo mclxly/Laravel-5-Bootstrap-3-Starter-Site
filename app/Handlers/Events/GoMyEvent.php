@@ -6,7 +6,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldBeQueued;
 use Log;
 
-class EmailMyEvent {
+class GoMyEvent {
 
 	/**
 	 * Create the event handler.
@@ -15,7 +15,7 @@ class EmailMyEvent {
 	 */
 	public function __construct()
 	{
-		Log::info('EmailMyEvent:__construct');
+		Log::info('GoMyEvent:__construct');
 	}
 
 	/**
@@ -26,14 +26,7 @@ class EmailMyEvent {
 	 */
 	public function handle(MyEvent $event)
 	{
-		// abort(404);
-		Log::info('MyEvent.');
-
-		Log::info('This is some useful information.');
-
-		Log::warning('Something could be going wrong.');
-
-		Log::error('Something is really going wrong.');
+		Log::info('GoMyEvent:handle');
 	}
 
 }
