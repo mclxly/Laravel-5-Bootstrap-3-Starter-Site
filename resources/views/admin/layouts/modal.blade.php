@@ -45,8 +45,6 @@
 <link
 	href="{{asset('assets/admin/font-awesome-4.2.0/css/font-awesome.min.css')}}"
 	rel="stylesheet" type="text/css">
-<link href="{{ asset('assets/admin/css/prettify.css')}}"
-	rel="stylesheet" type="text/css">
 <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!-- start: Favicon and Touch Icons -->
 <link rel="shortcut icon"
@@ -77,7 +75,7 @@
 		<![endif]-->
 	<script src="{{{ asset('assets/admin/js/bootstrap.min.js') }}}"></script>
 	<!-- page scripts -->
-	<script src="{{{ asset('assets/admin/js/jquery-ui-1.11.2.min.js') }}}"></script>
+	<script src="{{{ asset('assets/admin/js/jquery-ui.1.11.2.min.js') }}}"></script>
 	<script src="{{{ asset('assets/admin/js/jquery.colorbox.js') }}}"></script>
 	<script src="{{  asset('assets/admin/js/summernote.js')}}"></script>
 	<script src="{{  asset('assets/admin/js/select2.js') }}"></script>
@@ -86,24 +84,36 @@
 				$('textarea').summernote({height: 250});
 				$('form').submit(function(event) {
 					var form = $(this);
-					$.ajax({
-						type : form.attr('method'),
-						url : form.attr('action'),
-						data : form.serialize()
-					}).complete(function() {
-						// Optionally alert the user of success here...
-						setTimeout(function() 
-					        {
-					            parent.$.colorbox.close();
-					            window.parent.location.reload();
-					        }, 10);
-						
-					}).fail(function() {
-						// Optionally alert the user of an error here...
-						alert("There was an error with form data!");
-					});
-					//event.preventDefault();
-					// Prevent the form from submitting via the browser.
+					
+					if (form.attr('id') == '' || form.attr('id') != 'fupload'){
+						$.ajax({
+							  type : form.attr('method'),
+							  url : form.attr('action'),
+							  data : form.serialize()
+							  }).complete(function() {
+								  setTimeout(function() {
+									  parent.$.colorbox.close();
+									  window.parent.location.reload();
+									  }, 10);
+							}).fail(function() {});
+						}
+					else{
+						var formData = new FormData(this);
+						$.ajax({
+							  type : form.attr('method'),
+							  url : form.attr('action'),
+							  data : formData,
+							  mimeType:"multipart/form-data",
+							  contentType: false,
+							  cache: false,
+							  processData:false
+						}).complete(function() {
+							  setTimeout(function() {
+								  parent.$.colorbox.close();
+								  window.parent.location.reload();
+								  }, 10);
+						}).fail(function() {});
+						};
 				});
 
 				$('.close_popup').click(function() {

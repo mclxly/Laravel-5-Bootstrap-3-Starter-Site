@@ -67,9 +67,9 @@ class PhotoController extends AdminController {
         $photo -> album_cover = $request->album_cover;
 
         $picture = "";
-        if(Input::hasFile('picture'))
+        if($request->hasFile('image'))
         {
-            $file = Input::file('picture');
+            $file = $request->file('image');
             $filename = $file->getClientOriginalName();
             $extension = $file -> getClientOriginalExtension();
             $picture = sha1($filename . time()) . '.' . $extension;
@@ -77,13 +77,13 @@ class PhotoController extends AdminController {
         $photo -> filename = $picture;
         $photo -> save();
 
-        if(Input::hasFile('picture'))
+        if($request->hasFile('image'))
         {
             $photoalbum = PhotoAlbum::find($request->photo_album_id);
-            $destinationPath = public_path() . '/images/photoalbum/'.$photoalbum->folderid.'/';
-            Input::file('picture')->move($destinationPath, $picture);
+            $destinationPath = public_path() . '/appfiles/photoalbum/'.$photoalbum->folderid.'/';
+            $request->file('image')->move($destinationPath, $picture);
 
-            $path2 = public_path() . '/images/photoalbum/' . $photoalbum->folderid . '/thumbs/';
+            $path2 = public_path() . '/appfiles/photoalbum/' . $photoalbum->folderid . '/thumbs/';
             Thumbnail::generate_image_thumbnail($destinationPath . $picture, $path2 . $picture);
 
         }
@@ -123,9 +123,9 @@ class PhotoController extends AdminController {
         $photo -> album_cover = $request->album_cover;
 
         $picture = $photo->filename;
-        if(Input::hasFile('picture'))
+        if($request->hasFile('image'))
         {
-            $file = Input::file('picture');
+            $file = $request->file('image');
             $filename = $file->getClientOriginalName();
             $extension = $file -> getClientOriginalExtension();
             $picture = sha1($filename . time()) . '.' . $extension;
@@ -133,13 +133,13 @@ class PhotoController extends AdminController {
         $photo -> filename = $picture;
         $photo -> save();
 
-        if(Input::hasFile('picture'))
+        if($request->hasFile('image'))
         {
             $photoalbum = PhotoAlbum::find($request->photo_album_id);
-            $destinationPath = public_path() . '/images/photoalbum/'.$photoalbum->folderid.'/';
-            Input::file('picture')->move($destinationPath, $picture);
+            $destinationPath = public_path() . '/appfiles/photoalbum/'.$photoalbum->folderid.'/';
+            $request->file('image')->move($destinationPath, $picture);
 
-            $path2 = public_path() . '/images/photoalbum/' . $photoalbum->folderid . '/thumbs/';
+            $path2 = public_path() . '/appfiles/photoalbum/' . $photoalbum->folderid . '/thumbs/';
             Thumbnail::generate_image_thumbnail($destinationPath . $picture, $path2 . $picture);
         }
     }
