@@ -1,8 +1,10 @@
 # Laravel Framework 5  Bootstrap 3 Starter Site
 
-Demo is here http://l5start.mrakodol.info/
+## 本项目基于
+* [Laravel-5-Bootstrap-3-Starter-Site](https://github.com/mrakodol/Laravel-5-Bootstrap-3-Starter-Site)
 
 ## 在原有代码上进行了一些更新
+* 增加 Event/Command 代码示例
 
 
 ## Starter Site based on on Laravel 5.0 and Boostrap 3
