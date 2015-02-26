@@ -5,6 +5,7 @@ Demo is here http://l5start.mrakodol.info/
 ## 在原有代码上进行了一些更新
 * 添加 Event/Command 示例代码
 * 添加自动完成代码：[awesomplete](https://github.com/LeaVerou/awesomplete)(commit:3e30a8b86d)
+* Cache/Session/Queue 均使用 Redis
 
 ## Problem list
 Q: gulp-notify: [Error in notifier] Error in plugin 'gulp-notify'

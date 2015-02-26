@@ -19,4 +19,9 @@ class UserLoggedIn extends Event {
 		Log::info('UserLoggedIn:__construct');
 	}
 
+	public function failed()
+	{
+	    // Called when the job is failing...
+	}
+
 }

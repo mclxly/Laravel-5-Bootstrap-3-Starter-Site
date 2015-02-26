@@ -40,13 +40,10 @@
 body {
 	padding: 60px 0;
 }
-@
-section
-('styles')
-
+@section('styles')
+/*This is the master styles.*/
 		
-@
-show
+@show
 </style>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <link rel="shortcut icon"

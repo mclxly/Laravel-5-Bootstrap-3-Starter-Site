@@ -6,6 +6,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Contracts\Queue\ShouldBeQueued;
+use Log;
 
 class SendEmailQue extends Command implements SelfHandling, ShouldBeQueued {
 
@@ -18,7 +19,7 @@ class SendEmailQue extends Command implements SelfHandling, ShouldBeQueued {
 	 */
 	public function __construct()
 	{
-		//
+		Log::info('SendEmailQue:__construct');
 	}
 
 	/**
@@ -28,7 +29,7 @@ class SendEmailQue extends Command implements SelfHandling, ShouldBeQueued {
 	 */
 	public function handle()
 	{
-		//
+		Log::info('SendEmailQue:handle');
 	}
 
 }
