@@ -8,6 +8,6 @@
 <p>{!! $news->introduction() !!}</p>
 <p>{!! $news->content() !!}</p>
 <div>
-	<span class="badge badge-info">Posted {{{ $news->created_at }}}</span>
+  <span class="badge badge-info">Posted {{{ $news->created_at }}}</span>
 </div>
 @stop

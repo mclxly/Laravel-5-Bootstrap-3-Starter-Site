@@ -1,3 +1,5 @@
 {
-  "assets/site/css/app.min.css": "assets/site/css/app.min-2bcaa60b.css"
+  "assets/js/vendor.min.js": "assets/js/vendor.min-a9f32458.js",
+  "assets/css/vendor.min.css": "assets/css/vendor.min-c193b89e.css",
+  "assets/site/css/app.min.css": "assets/site/css/app.min-1595aafa.css"
 }

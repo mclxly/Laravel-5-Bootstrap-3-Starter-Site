@@ -4,8 +4,11 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\AssignedRoles as IsAdminRoles;
 use View;
+use Illuminate\Foundation\Bus\DispatchesCommands;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class BaseController extends Controller {
+    use DispatchesCommands;
 
     /**
      * Initializer.

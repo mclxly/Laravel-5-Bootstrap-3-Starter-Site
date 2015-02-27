@@ -26,7 +26,7 @@ class VideoController extends AdminController {
     }
 
     /**
-     * Show a list of all the photo posts.
+     * Show a list of all the video posts.
      *
      * @return View
      */
@@ -72,9 +72,9 @@ class VideoController extends AdminController {
             $video->youtube = rtrim($youtube[1]);
         }
         $video_file = "";
-        if(Input::hasFile('video'))
+        if($request->hasFile('video'))
         {
-            $file = Input::file('video');
+            $file = $request->file('video');
             $filename = $file->getClientOriginalName();
             $extension = $file -> getClientOriginalExtension();
             $video_file = sha1($filename . time()) . '.' . $extension;
@@ -82,11 +82,11 @@ class VideoController extends AdminController {
         }
         $video -> save();
 
-        if(Input::hasFile('video'))
+        if($request->hasFile('video'))
         {
             $videoalbum = VideoAlbum::find($request->video_album_id);
-            $destinationPath = public_path() . '/images/videoalbum/'.$videoalbum->folderid.'/';
-            Input::file('video')->move($destinationPath, $video_file);
+            $destinationPath = public_path() . '/appfiles/videoalbum/'.$videoalbum->folderid.'/';
+            $request->file('video')->move($destinationPath, $video_file);
         }
     }
     /**
@@ -105,7 +105,7 @@ class VideoController extends AdminController {
         $languages = Language::all();
         $language = $video->language_id;
         $videoalbums = VideoAlbum::all();
-        $videoalbum = $video->photo_album_id;
+        $videoalbum = $video->video_album_id;
 
         return view('admin.video.create_edit',compact('video','languages','language','videoalbums','videoalbum'));
     }
@@ -120,8 +120,7 @@ class VideoController extends AdminController {
     {
         $video = Video::find($id);
         $video -> user_id = Auth::id();
-        $video -> language_id = $request->language_id;
-        $video -> language_id = $request->language_id;
+        $video -> language_id = $request->language_id;        
         $video -> name = $request->name;
         $video -> video_album_id = $request->video_album_id;
         $video -> description = $request->description;
@@ -133,9 +132,9 @@ class VideoController extends AdminController {
         }
 
         $video_file = $video->filename;
-        if(Input::hasFile('video'))
+        if($request->hasFile('video'))
         {
-            $file = Input::file('video');
+            $file = $request->file('video');
             $filename = $file->getClientOriginalName();
             $extension = $file -> getClientOriginalExtension();
             $video_file = sha1($filename . time()) . '.' . $extension;
@@ -143,11 +142,11 @@ class VideoController extends AdminController {
         }
         $video -> save();
 
-        if(Input::hasFile('video'))
+        if($request->hasFile('video'))
         {
-            $videoalbum = VideoAlbum::find($request->photo_album_id);
-            $destinationPath = public_path() . '/images/videoalbum/'.$videoalbum->folderid.'/';
-            Input::file('video')->move($destinationPath, $video_file);
+            $videoalbum = VideoAlbum::find($request->video_album_id);
+            $destinationPath = public_path() . '/appfiles/videoalbum/'.$videoalbum->folderid.'/';
+            $request->file('video')->move($destinationPath, $video_file);
         }
     }
 
@@ -207,14 +206,16 @@ class VideoController extends AdminController {
      */
     public function data($albumid=0) {
         $condition =(intval($albumid)==0)?">":"=";
-        $photoalbum = Video::join('language', 'language.id', '=', 'video.language_id')
+        $videoalbum = Video::join('language', 'language.id', '=', 'video.language_id')
             ->join('video_album', 'video_album.id', '=', 'video.video_album_id')
             ->where('video.video_album_id',$condition,$albumid)
             ->orderBy('video.position')
-            ->select(array('video.id',DB::raw($albumid . ' as albumid'), 'video.name','video_album.name as category',
-                'video.album_cover','language.name as language', 'video.created_at'));
+            ->select(array('video.id',DB::raw($albumid . ' as albumid'), DB::getTablePrefix().'video.name',
+                'video_album.name as category',
+                DB::getTablePrefix().'video.album_cover','language.name as language', 
+                DB::getTablePrefix().'video.created_at'));
 
-        return Datatables::of($photoalbum)
+        return Datatables::of($videoalbum)
             -> edit_column('album_cover', '<a href="{{{ URL::to(\'admin/video/\' . $id . \'/\' . $albumid . \'/albumcover\' ) }}}" class="btn btn-warning btn-sm" >@if ($album_cover=="1") <span class="glyphicon glyphicon-ok"></span> @else <span class=\'glyphicon glyphicon-remove\'></span> @endif</a>')
             -> add_column('actions', '<a href="{{{ URL::to(\'admin/video/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span>  {{ Lang::get("admin/modal.edit") }}</a>
                 <a href="{{{ URL::to(\'admin/video/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ Lang::get("admin/modal.delete") }}</a>

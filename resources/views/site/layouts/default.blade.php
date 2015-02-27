@@ -28,24 +28,22 @@
 <link rel="stylesheet"
 	href="{{asset('assets/site/css/lightbox.min.css')}}" />
 <link rel="stylesheet" href="{{ elixir("assets/site/css/app.min.css") }}">	
+<link rel="stylesheet" href="{{ elixir("assets/css/vendor.min.css") }}">
 <!-- Javascripts
 		================================================== -->
 <script src="{{asset('assets/site/js/jquery-1.11.1.min.js')}}"></script>
 <script src="{{asset('assets/site/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/site/js/jquery.justifiedGallery.min.js')}}"></script>
 <script src="{{asset('assets/site/js/lightbox.min.js')}}"></script>
-
+<script src="{{ elixir("assets/js/vendor.min.js") }}" async></script>
 <style>
 body {
 	padding: 60px 0;
 }
-@
-section
-('styles')
-
+@section('styles')
+/*This is the master styles.*/
 		
-@
-show
+@show
 </style>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <link rel="shortcut icon"

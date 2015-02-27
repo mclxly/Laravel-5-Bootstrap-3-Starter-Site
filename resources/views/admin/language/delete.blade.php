@@ -21,4 +21,8 @@
 		</div>
 	</div>
 </form>
+<<<<<<< HEAD
 @stop
+=======
+@stop
+>>>>>>> origin/master

@@ -15,6 +15,18 @@ elixir(function(mix) {
     mix.less('app.less')
       .styles([
         'app.css'
-        ], 'public/assets/site/css/app.min.css', 'public/css')
-      .version('public/assets/site/css/app.min.css');
+        ], 'public/assets/site/css/app.min.css', 'public/css');
+
+    // vendor css/js
+    mix.styles([
+        "awesomplete.css"
+    ], 'public/assets/css/vendor.min.css', 'resources/vendor');
+
+    mix.scripts([
+        "awesomplete.min.js"
+    ], 'public/assets/js/vendor.min.js', 'resources/vendor');
+
+    mix.version(['public/assets/js/vendor.min.js'
+      , 'public/assets/css/vendor.min.css'
+      , 'public/assets/site/css/app.min.css']);
 });
