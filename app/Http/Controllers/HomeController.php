@@ -7,6 +7,7 @@ use App\News;
 use App\Photo;
 use App\VideoAlbum;
 use App\PhotoAlbum;
+use App\serdesc;
 use Illuminate\Support\Facades\DB;
 use Log;
 
@@ -51,6 +52,8 @@ class HomeController extends BaseController
 	{
         // -------------------------
         // test purpose
+        $model = serdesc::findOrFail(1);
+
         Event::listen("Pages.show", function(){
             Log::info('event - Pages.show');            
         });
