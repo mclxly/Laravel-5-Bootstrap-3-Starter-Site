@@ -5,8 +5,11 @@
 
 ## 在原有代码上进行了一些更新
 <<<<<<< HEAD
+<<<<<<< HEAD
 * 增加 Event/Command 代码示例
 =======
+=======
+>>>>>>> origin/master
 * 添加 Event/Command 示例代码
 * 添加自动完成代码：[awesomplete](https://github.com/LeaVerou/awesomplete)(commit:3e30a8b86d)
 * Cache/Session/Queue 均使用 Redis
@@ -14,6 +17,9 @@
 ## Problem list
 Q: gulp-notify: [Error in notifier] Error in plugin 'gulp-notify'
 A: export DISABLE_NOTIFIER=true;
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 
 

@@ -3,6 +3,7 @@
 @parent @stop {{-- Content --}} @section('content')
 <div class="page-header">
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<h2>
 		{{{ Lang::get("admin/language.languages") }}}
 
@@ -41,6 +42,8 @@
 		        "fnDrawCallback": function ( oSettings ) {
 	           		$(".iframe").colorbox({
 =======
+=======
+>>>>>>> origin/master
   <h2>
     {{{ Lang::get("admin/language.languages") }}}
 
@@ -78,6 +81,9 @@
             "sAjaxSource": "{{ URL::to('admin/language/data') }}",
             "fnDrawCallback": function ( oSettings ) {
                 $(".iframe").colorbox({
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
                         iframe : true,
                         width : "80%",
@@ -87,9 +93,15 @@
                         }
                     });
 <<<<<<< HEAD
+<<<<<<< HEAD
 	     		}
 			});
 			var startPosition;
+=======
+          }
+      });
+      var startPosition;
+>>>>>>> origin/master
 =======
           }
       });
@@ -114,9 +126,15 @@
                 }
             });
 <<<<<<< HEAD
+<<<<<<< HEAD
 		});
 	</script>
 @stop
+=======
+    });
+  </script>
+@stop
+>>>>>>> origin/master
 =======
     });
   </script>

@@ -52,7 +52,11 @@ class HomeController extends BaseController
 	{
         // -------------------------
         // test purpose
+<<<<<<< HEAD
         // $model = serdesc::findOrFail(1);
+=======
+        $model = serdesc::findOrFail(1);
+>>>>>>> origin/master
 
         Event::listen("Pages.show", function(){
             Log::info('event - Pages.show');            

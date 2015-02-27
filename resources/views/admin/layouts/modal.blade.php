@@ -46,8 +46,11 @@
 	href="{{asset('assets/admin/font-awesome-4.2.0/css/font-awesome.min.css')}}"
 	rel="stylesheet" type="text/css">
 <<<<<<< HEAD
+<<<<<<< HEAD
 <link href="{{ asset('assets/admin/css/prettify.css')}}"
 	rel="stylesheet" type="text/css">
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -81,7 +84,11 @@
 	<script src="{{{ asset('assets/admin/js/bootstrap.min.js') }}}"></script>
 	<!-- page scripts -->
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<script src="{{{ asset('assets/admin/js/jquery-ui-1.11.2.min.js') }}}"></script>
+=======
+	<script src="{{{ asset('assets/admin/js/jquery-ui.1.11.2.min.js') }}}"></script>
+>>>>>>> origin/master
 =======
 	<script src="{{{ asset('assets/admin/js/jquery-ui.1.11.2.min.js') }}}"></script>
 >>>>>>> origin/master
@@ -92,6 +99,7 @@
 			$(function() {
 				$('textarea').summernote({height: 250});
 				$('form').submit(function(event) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 					event.preventDefault();
 					var form = $(this);
@@ -114,6 +122,8 @@
 					//event.preventDefault();
 					// Prevent the form from submitting via the browser.
 =======
+=======
+>>>>>>> origin/master
 					var form = $(this);
 					
 					if (form.attr('id') == '' || form.attr('id') != 'fupload'){
@@ -163,6 +173,9 @@
               alert(alertText);
 						});
 					};
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 				});
 

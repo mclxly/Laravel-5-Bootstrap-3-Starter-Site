@@ -4,6 +4,7 @@
 {{-- Content --}} @section('content')
 <div class="page-header">
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<h3>
 		{{{ Lang::get("admin/news.news") }}}
 		<div class="pull-right">
@@ -51,6 +52,8 @@
 				});
 			}
 =======
+=======
+>>>>>>> origin/master
   <h3>
     {{{ Lang::get("admin/news.news") }}}
     <div class="pull-right">
@@ -97,6 +100,9 @@
           }
         });
       }
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
         });
 
@@ -120,9 +126,15 @@
             }
         });
 <<<<<<< HEAD
+<<<<<<< HEAD
 	}); 
 </script>
 @stop
+=======
+  }); 
+</script>
+@stop
+>>>>>>> origin/master
 =======
   }); 
 </script>

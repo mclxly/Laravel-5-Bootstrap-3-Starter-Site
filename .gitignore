@@ -7,6 +7,10 @@
 Thumbs.db
 composer.lock
 composer.phar
+<<<<<<< HEAD
 /public/build
 t.php
 
+=======
+/public/build
+>>>>>>> origin/master
